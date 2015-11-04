@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="/template/common/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h:form>
+			
+			
+			
+				<div class="row" style="margin-bottom: 30px;">
+					<br></br>
+					<div class="col-lg-1"></div>
+					<div class="col-lg-10">
+						<ul class="nav nav-tabs">
+							<li><a
+								href="http://localhost:8080/primefaces/faces/page1.xhtml">Home</a></li>
+							<li class="active"><a
+								href="http://localhost:8080/primefaces/faces/Galleria1.xhtml">Galleria</a></li>
+							<li><a href="http://localhost:8080/primefaces/Upload1.xhtml">Upload</a></li>
+							<li><a data-toggle="modal" data-target="#logout">Log Out</a></li>
+						</ul>
+
+
+
+						<!-- Modal  LogOut-->
+						<div class="modal fade" id="logout" role="dialog">
+							<div class="modal-dialog modal-lg">
+
+
+
+
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Log Out</h4>
+									</div>
+
+
+
+									<div class="modal-body">
+										<p>
+											<h3>Are you sure</h3>
+
+											<br></br>
+											<h:commandButton value=" Yes " id="ajax3"
+												action="#{login.logOut}" class="btn btn-success" />
+
+											<p:spacer width="30" />
+
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">No</button>
+
+
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="col-lg-1"></div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-lg-1"></div>
+					<div class="col-lg-10">
+						<p:contentFlow value="#{imagesView.images}" var="image" >
+							<p:graphicImage name="demo/images/nature/#{image}"
+								styleClass="content" />
+							<br></br>
+							<br></br>
+							<div class="caption">#{image}</div>
+							<br></br>
+							<br></br>
+						</p:contentFlow>
+					</div>
+				</div>
+
+
+			</h:form>
+
+		</ui:define>
+
+		<ui:insert name="footer">
+			<ui:include src="/template/common/commonFooter.xhtml" />
+		</ui:insert>
+
+
+
+
+	</ui:composition>
+
+</h:body>
+
+</html>

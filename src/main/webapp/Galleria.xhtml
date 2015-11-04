@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Galleria</title>
+
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+
+	
+	<h:form id="form">
+		<div id="head">
+			<h3>
+				Hi
+				<h:outputText value="#{login.user}" />
+			</h3>
+
+
+
+
+			<p>All Tabs</p>
+			<ul class="nav nav-tabs">
+				<li><a
+					href="http://localhost:8080/primefaces/faces/success.xhtml">Home</a></li>
+				<li class="active"><a
+					href="http://localhost:8080/primefaces/faces/Galleria.xhtml">Galleria</a></li>
+				<li><a
+					href="http://localhost:8080/primefaces/fileUpload.xhtml">Upload</a></li>
+				<li><a href="http://localhost:8080/primefaces/">Log Out</a></li>
+			</ul>
+		</div>
+
+
+		<p:contentFlow value="#{imagesView.images}" var="image">
+			<p:graphicImage name="demo/images/nature/#{image}"
+				styleClass="content" />
+			<br></br>
+			<br></br>
+			<div class="caption">#{image}</div>
+			<br></br>
+			<br></br>
+		</p:contentFlow>
+
+
+
+
+
+		<p:stack icon="/resources/demo/images/dock/stack.png" expanded="false">
+			<p:menuitem value="Home" icon="/resources/demo/images/dock/home.png"
+				url="http://localhost:8080/primefaces/faces/success.xhtml" />
+			<p:menuitem value="Music"
+				icon="/resources/demo/images/dock/music.png" url="#" />
+			<p:menuitem value="Galleria"
+				icon="/resources/demo/images/dock/video.png"
+				url="http://localhost:8080/primefaces/faces/Galleria.xhtml" />
+			<p:menuitem value="Email"
+				icon="/resources/demo/images/dock/email.png" url="#" />
+		</p:stack>
+
+	</h:form>
+</h:body>
+</html>

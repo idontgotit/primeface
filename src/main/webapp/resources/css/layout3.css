@@ -1,0 +1,171 @@
+<
+style>hr {
+	clear: both;
+	color: gray;
+	background-color: #006633;
+	height: 20px;
+
+}
+
+div {
+	/* 	color: #cdbfe3; */
+	/* 	background-color: #6f5499; */
+	
+}
+
+body {
+	background-repeat: no-repeat;
+}
+
+/* Make Header Sticky */
+#header_container {
+	background: #eee;
+	
+	height: 60px;
+	left: 0;
+	position: fixed;
+	
+	top: 0;
+}
+
+#header {
+	line-height: 60px;
+	margin: 0 auto;
+	
+	text-align: center;
+}
+
+#main {
+	
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#head {
+	height: 90px;
+	color: #cdbfe3;
+	background-color: #6f5499;
+	
+	margin-bottom: 0px;
+}
+
+#head-link {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	background-color: #F5F5F5;
+	margin-bottom: 5px;
+	clear: both;
+}
+
+#right {
+}
+
+#left {
+	font-family: 'Exo', sans-serif;
+	
+	min-height: 1600px;
+	
+	float: left;
+	background-color: #0000;
+	margin-bottom: 0px;
+}
+
+#content {
+	font-family: 'Exo', sans-serif;
+	
+	
+	float: right;
+	margin-left: 0px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+#footer {
+	height: 50px;
+	clear: both;
+	
+	background-color: #F8F8FF;
+}
+
+#brand {
+	background: url(http://bitsamppixels.com/sites/all/themes/zeropoint/images/all/_brand.png) 50% 30% no-repeat;
+	
+	position: relative;
+	margin: 5px auto 0;
+	width: 250px;
+	height: 50px;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 100;
+	src: local('Exo Thin'), local('Exo-Thin'),
+		url(http://fonts.gstatic.com/s/exo/v4/8u62BadBN2JBBSWXwLrcLA.woff2)
+		format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF,
+		U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 100;
+	src: local('Exo Thin'), local('Exo-Thin'),
+		url(http://fonts.gstatic.com/s/exo/v4/bSEuBfAK9i16rKak_EdKNA.woff2)
+		format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Exo ExtraLight'), local('Exo-ExtraLight'),
+		url(http://fonts.gstatic.com/s/exo/v4/Hy3VpD2TiyQkDhJpDnN2QPesZW2xOQ-xsNqO47m55DA.woff2)
+		format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF,
+		U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Exo ExtraLight'), local('Exo-ExtraLight'),
+		url(http://fonts.gstatic.com/s/exo/v4/lA-XzkxvFbAS7qSN5Rm7dw.woff2)
+		format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Exo Regular'), local('Exo-Regular'),
+		url(http://fonts.gstatic.com/s/exo/v4/J59yWLG3iwczjwZ63gnONw.woff2)
+		format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF,
+		U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Exo Regular'), local('Exo-Regular'),
+		url(http://fonts.gstatic.com/s/exo/v4/kA_pX0U45Eb7PbHijV1x2w.woff2)
+		format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+</
+style
+>

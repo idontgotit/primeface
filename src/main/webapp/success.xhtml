@@ -1,0 +1,414 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>login Success</title>
+
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
+
+</h:head>
+<h:body>
+
+
+
+
+	<h:outputStylesheet library="css" name="layout.css" />
+
+	<h:form id="form1">
+
+
+
+		<div id="head">
+			<h3>
+				Hi
+				<h:outputText value="#{login.user}" />
+			</h3>
+
+
+			<p>All Tabs</p>
+			<ul class="nav nav-tabs">
+				<li  class="active"><a
+					href="http://localhost:8080/primefaces/faces/success.xhtml">Home</a></li>
+				<li><a
+					href="http://localhost:8080/primefaces/faces/Galleria.xhtml">Galleria</a></li>
+				<li><a href="http://localhost:8080/primefaces/fileUpload.xhtml">Upload</a></li>
+				<li><a data-toggle="modal" data-target="#logout">Log Out</a></li>
+			</ul>
+		</div>
+
+<!-- Modal  LogOut-->
+		<div class="modal fade" id="logout" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+
+
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"> Log Out</h4>
+					</div>
+
+
+
+					<div class="modal-body">
+						<p>
+						<h3>Are you sure</h3>
+						
+						<br></br>
+						<h:commandButton value=" Yes " id="ajax3"
+								action="#{login.logOut}" class="btn btn-success" />
+						
+						<p:spacer width="30" />
+						
+						<button type="button" class="btn btn-default" data-dismiss="modal"> No </button>
+
+
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+			data-target="#myModal">
+			<h5>Add User</h5>
+		</button>
+
+
+
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+
+
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">type new user and password</h4>
+					</div>
+
+
+
+					<div class="modal-body">
+						<p>
+
+
+
+							<div id="right">
+								<!-- File Upload with  mode="advanced". multiple files can be uploaded. upload button  -->
+
+								<h:outputLabel for="fileIdPhoto" value="Upload Your Photo:" />
+
+
+								<p:fileUpload id="fileIdPhoto"
+									fileUploadListener="#{fileUploadBean.uploadPhoto}"
+									mode="advanced" dragDropSupport="false" multiple="true"
+									update="messages" sizeLimit="10000000" fileLimit="3"
+									allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+								<p:messages id="messages" autoUpdate="true" closable="true" />
+
+
+							</div>
+
+
+
+
+							<h:outputText value="Username" />
+
+
+							<p:inputText id="username" value="#{login.user}" />
+							<h:message for="username"></h:message>
+							<br /> <br />
+
+							<h:outputText value=" Password " />
+							<p:password id="password" value="#{login.pwd}" />
+							<h:message for="password"></h:message>
+
+
+
+							<h:panelGrid columns="2" style="margin-bottom:10px"
+								cellpadding="5">
+								<p:outputLabel for="console" value="Gender:" />
+								<p:selectOneRadio id="console" value="#{login.sex}">
+									<f:selectItem itemLabel="Male" itemValue="Male" />
+									<f:selectItem itemLabel="Female" itemValue="Female" />
+								</p:selectOneRadio>
+							</h:panelGrid>
+
+							<br /> <br />
+							<h:commandButton value="Submit" id="ajax1" update="cars2"
+								action="#{login.addUser()}" class="btn btn-success" />
+
+						</p>
+
+
+					</div>
+
+
+
+
+
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</h:form>
+
+
+
+
+
+
+	<div id="left" style="display: block;">
+
+		<div id="head"
+			style="height: 50px; background-color: #0090C9; color: #FFFFFF;">
+			<h4>All Menu</h4>
+		</div>
+		<div class="dropdown">
+			<button class="btn btn-default dropdown-toggle" type="button"
+				id="menu2" data-toggle="dropdown">
+				Menu2 <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+				<li role="presentation"><a role="menuitem" href="#">HTML</a></li>
+				<li role="presentation"><a role="menuitem" href="#">CSS</a></li>
+				<li role="presentation"><a role="menuitem" href="#">JavaScript</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" href="#">About
+						Us</a></li>
+			</ul>
+		</div>
+
+		<h:form>
+			<p:growl autoUpdate="true" />
+
+			<p:panelMenu>
+				<p:submenu label=" Menuitems">
+					<p:menuitem value="Save" actionListener="#{menuView.save}"
+						icon="ui-icon-disk" />
+					<p:menuitem value="Update" actionListener="#{menuView.update}"
+						icon="ui-icon-arrowrefresh-1-w" />
+				</p:submenu>
+				<p:submenu label="Non-Ajax Menuitem">
+					<p:menuitem value="Delete" actionListener="#{menuView.delete}"
+						ajax="false" icon="ui-icon-close" />
+				</p:submenu>
+				<p:separator />
+				<p:submenu label="Navigations">
+					<p:submenu label="Links" icon="ui-icon-extlink">
+						<p:submenu label="PrimeFaces" icon="ui-icon-heart">
+							<p:menuitem value="Home" url="http://www.primefaces.org"
+								icon="ui-icon-home" />
+							<p:menuitem value="Docs"
+								url="http://www.primefaces.org/documentation"
+								icon="ui-icon-document" />
+							<p:menuitem value="Download"
+								url="http://www.primefaces.org/downloads"
+								icon="ui-icon-arrowthick-1-s" />
+							<p:menuitem value="Support"
+								url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
+						</p:submenu>
+					</p:submenu>
+				</p:submenu>
+
+			</p:panelMenu>
+		</h:form>
+
+
+
+	</div>
+
+
+
+
+
+
+
+	<h:form id="form">
+
+		<p:growl id="msgs" showDetail="true" />
+
+		<p:contextMenu for="cars2" widgetVar="cMenu">
+			<p:menuitem value="Edit Cell" icon="ui-icon-search"
+				onclick="PF('cellCars').showCellEditor();return false;" />
+			<p:menuitem value="Hide Menu" icon="ui-icon-close"
+				onclick="PF('cMenu').hide()" />
+		</p:contextMenu>
+
+
+		<div id="content">
+
+
+
+
+			<button type="button" image="" onclick="toggle_visibility(left)">Tougle</button>
+			<script type="text/javascript">
+    function toggle_visibility(left) 
+    {
+        var e = document.getElementById("left");
+        if ( e.style.display == 'block' )
+            { 
+            e.style.display = 'none';
+            document.getElementById("content").style.width = "1895px";
+            }
+           
+        else
+            {
+        	 e.style.display = 'block';
+        	 document.getElementById("content").style.width = "1600px";
+            }
+            
+    }
+</script>
+
+			<p:dataTable id="cars2" var="car" value="#{login.listUsers}"
+				editable="true" editMode="cell" widgetVar="cellCars"
+				sortBy="#{car.id}" emptyMessage="No users found ">
+				<f:facet name="header">
+					<h4>List of Users</h4>
+
+					<p:commandButton id="toggler" type="button" value="Columns"
+						style="float:right" icon="ui-icon-calculator" />
+
+					<p:columnToggler datasource="cars2" trigger="toggler" />
+				</f:facet>
+
+				<f:facet name="header">
+					<p:outputPanel>
+						<h:outputText value="Search:" />
+						<p:inputText id="globalFilter" onkeyup="PF('cellCars').filter()"
+							style="width:250px" placeholder="Enter keyword" />
+					</p:outputPanel>
+				</f:facet>
+
+
+				<p:ajax event="cellEdit" listener="#{editView.onCellEdit}"
+					update=":form:msgs" />
+
+
+				<p:column headerText="Id" sortBy="#{car.id}" style="width:80px;">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{car.id}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="modelInput" value="#{car.id}" style="width:96%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<p:column headerText="username" sortBy="#{car.userName}"
+					filterBy="#{car.userName}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{car.userName}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{car.userName}" style="width:96%"
+								label="Year" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<p:column headerText="password" sortBy="#{car.password}"
+					filterBy="#{car.password}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{car.password}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{car.password}" style="width:96%"
+								label="Year" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<p:column headerText="sex" sortBy="#{car.sex}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{car.sex}" />
+						</f:facet>
+						<f:facet name="input">
+							<h:selectOneMenu value="#{car.sex}" style="width:100%">
+								<f:selectItems value="#{editView.brands}" var="color"
+									itemLabel="#{color}" itemValue="#{color}" />
+							</h:selectOneMenu>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+
+
+				<p:column headerText="Image">
+					<p:graphicImage value="#{viewImageDB.methodConvertToStream()}">
+						<f:param name="id" value="#{car.userPhoto.photoId}"></f:param>
+					</p:graphicImage>
+				</p:column>
+
+
+				<p:column headerText="Delete" style="width:80px;">
+					<button style="display: none;">Hidden</button>
+					<h:commandButton value="Delete" action="#{login.deleteUser(car)}"
+						class="btn btn-success" ajax="false" />
+				</p:column>
+
+
+
+				<f:facet name="footer">
+        In total there are #{login.listUsers.size()} users.
+   	 </f:facet>
+			</p:dataTable>
+
+		</div>
+
+
+		<div id="footer">
+			<p:stack icon="/resources/demo/images/dock/stack.png"
+				expanded="false">
+				<p:menuitem value="Home" icon="/resources/demo/images/dock/home.png"
+					url="http://localhost:8080/primefaces/faces/success.xhtml" />
+				<p:menuitem value="Music"
+					icon="/resources/demo/images/dock/music.png" url="#" />
+				<p:menuitem value="Galleria"
+					icon="/resources/demo/images/dock/video.png"
+					url="http://localhost:8080/primefaces/faces/Galleria.xhtml" />
+				<p:menuitem value="Email"
+					icon="/resources/demo/images/dock/email.png" url="#" />
+			</p:stack>
+
+
+		</div>
+
+	</h:form>
+</h:body>
+</html>

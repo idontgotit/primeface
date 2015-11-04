@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		
+		
+		
+
+
+	<title>File Upload</title>
+</h:head>
+<h:body>
+	<h:form id="fileUpoad" prependId="false" enctype="multipart/form-data">
+		<h:outputStylesheet library="css" name="layout.css" />
+		<div id="head">
+			<h3>File Upload</h3>
+
+
+
+
+
+
+			<p>All Tabs</p>
+			<ul class="nav nav-tabs">
+				<li><a
+					href="http://localhost:8080/primefaces/faces/success.xhtml">Home</a></li>
+				<li><a
+					href="http://localhost:8080/primefaces/faces/Galleria.xhtml">Galleria</a></li>
+				<li class="active"><a
+					href="http://localhost:8080/primefaces/fileUpload.xhtml">Upload</a></li>
+				<li><a href="http://localhost:8080/primefaces/">Log Out</a></li>
+			</ul>
+
+		</div>
+
+
+
+
+
+
+
+		
+		<br></br>
+
+		<div id="content">
+			<!-- File Upload with  mode="advanced". multiple files can be uploaded. upload button  -->
+
+			<h:outputLabel for="fileIdPhoto" value="Upload Your Photo:" />
+
+
+			<p:fileUpload id="fileIdPhoto"
+				fileUploadListener="#{fileUploadBean.uploadPhoto}" mode="advanced"
+				dragDropSupport="false" multiple="true" update="messages"
+				sizeLimit="10000000" fileLimit="3"
+				allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+			<p:messages id="messages" autoUpdate="true" closable="true" />
+			
+			
+	</div>
+		
+		
+	</h:form>
+
+</h:body>
+</html>

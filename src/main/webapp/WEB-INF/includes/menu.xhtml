@@ -1,0 +1,74 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui">
+
+	<h:form>
+
+
+		<div style="height: 50px; background-color: #337ab7; color: #FFFFFF;">
+			<h4 align="center" style="padding-top: 10px;">All Menu</h4>
+		</div>
+
+
+
+
+		<div class="dropdown">
+			<button class="btn btn-default dropdown-toggle" type="button"
+				id="menu2" data-toggle="dropdown">
+				Menu2 <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+				<li role="presentation"><a role="menuitem" href="#">HTML</a></li>
+				<li role="presentation"><a role="menuitem" href="#">CSS</a></li>
+				<li role="presentation"><a role="menuitem" href="#">JavaScript</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" href="#">About
+						Us</a></li>
+			</ul>
+		</div>
+		<p:growl autoUpdate="true" />
+
+		<p:panelMenu>
+
+			<p:submenu label="Ajax Menuitems">
+				<p:menuitem value="ShowImage" actionListener="#{menuView.save}"
+					icon="ui-icon-disk" process="@this" update=":subContentPane" />
+				<p:menuitem value="HidingImage" actionListener="#{menuView.update}"
+					icon="ui-icon-arrowrefresh-1-w" process="@this"
+					update=":subContentPane" />
+			</p:submenu>
+
+			<p:submenu label="Non-Ajax Menuitem">
+				<p:menuitem value="Media" actionListener="#{menuView.delete}"
+					process="@this" update=":contentPanelRight" />
+				<p:menuitem value="List Image" actionListener="#{menuView.showImg}"
+					process="@this" update=":contentPanelRight" />
+			</p:submenu>
+
+			<p:separator />
+			<p:submenu label="Navigations">
+				<p:submenu label="Links" icon="ui-icon-extlink">
+					<p:submenu label="PrimeFaces" icon="ui-icon-heart">
+						<p:menuitem value="Home" url="http://www.primefaces.org"
+							icon="ui-icon-home" />
+						<p:menuitem value="Docs"
+							url="http://www.primefaces.org/documentation"
+							icon="ui-icon-document" />
+						<p:menuitem value="Download"
+							url="http://www.primefaces.org/downloads"
+							icon="ui-icon-arrowthick-1-s" />
+						<p:menuitem value="Support"
+							url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
+					</p:submenu>
+				</p:submenu>
+			</p:submenu>
+		</p:panelMenu>
+
+
+	</h:form>
+
+
+</ui:component>

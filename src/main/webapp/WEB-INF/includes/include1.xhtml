@@ -1,0 +1,300 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui">
+
+
+
+	<h:form>
+
+		<div class="col-lg-1"></div>
+		<div class="col-lg-2" style="padding-right: 0px; padding-left: 0px;">
+
+			<div style="height: 50px; background-color: #337ab7; color: #FFFFFF;">
+				<h4 align="center" style="padding-top: 10px;">All Menu</h4>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="menu2" data-toggle="dropdown">
+					Menu2 <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+					<li role="presentation"><a role="menuitem" href="#">HTML</a></li>
+					<li role="presentation"><a role="menuitem" href="#">CSS</a></li>
+					<li role="presentation"><a role="menuitem" href="#">JavaScript</a></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation"><a role="menuitem" href="#">About
+							Us</a></li>
+				</ul>
+			</div>
+			<p:growl autoUpdate="true" />
+
+			<p:panelMenu>
+
+				<p:submenu label="Ajax Menuitems">
+					<p:menuitem value="ShowImage" actionListener="#{menuView.save}"
+						icon="ui-icon-disk" process="@this" update=":subContentPane" />
+					<p:menuitem value="HidingImage" actionListener="#{menuView.update}"
+						icon="ui-icon-arrowrefresh-1-w" process="@this"
+						update=":subContentPane" />
+				</p:submenu>
+
+
+				<p:separator />
+				<p:submenu label="Navigations">
+					<p:submenu label="Links" icon="ui-icon-extlink">
+						<p:submenu label="PrimeFaces" icon="ui-icon-heart">
+							<p:menuitem value="Home" url="http://www.primefaces.org"
+								icon="ui-icon-home" />
+							<p:menuitem value="Docs"
+								url="http://www.primefaces.org/documentation"
+								icon="ui-icon-document" />
+							<p:menuitem value="Download"
+								url="http://www.primefaces.org/downloads"
+								icon="ui-icon-arrowthick-1-s" />
+							<p:menuitem value="Support"
+								url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
+						</p:submenu>
+					</p:submenu>
+				</p:submenu>
+			</p:panelMenu>
+		</div>
+	</h:form>
+
+	<h:form id="form" rendered="#{bean.admin}">
+
+
+		<div class="col-lg-8" style="padding-left: 0px; padding-right: 0px;">
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:contextMenu for="cars2" widgetVar="cMenu">
+				<p:menuitem value="Edit Cell" icon="ui-icon-search"
+					onclick="PF('cellCars').showCellEditor();return false;" />
+				<p:menuitem value="Hide Menu" icon="ui-icon-close"
+					onclick="PF('cMenu').hide()" />
+			</p:contextMenu>
+
+
+			<div>
+
+				<p:dataTable id="cars2" var="car" value="#{login.listUsers}"
+					editable="true" editMode="cell" widgetVar="cellCars"
+					sortBy="#{car.id}" emptyMessage="No users found "
+					style="margin-top: 10px;">
+					<f:facet name="header">
+						<h4>List of Users</h4>
+
+						<p:commandButton id="toggler" type="button" value="Columns"
+							style="float:right" icon="ui-icon-calculator" />
+
+						<p:columnToggler datasource="cars2" trigger="toggler" />
+					</f:facet>
+
+					<f:facet name="header">
+						<p:outputPanel>
+							<h:outputText value="Search:" />
+							<p:inputText id="globalFilter" onkeyup="PF('cellCars').filter()"
+								style="width:250px" placeholder="Enter keyword" />
+						</p:outputPanel>
+					</f:facet>
+
+
+					<p:ajax event="cellEdit" listener="#{editView.onCellEdit}"
+						update=":form:msgs" />
+
+
+					<p:column headerText="Id" sortBy="#{car.id}" style="width:50px;">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{car.id}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText id="modelInput" value="#{car.id}" style="width:96%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="username" sortBy="#{car.userName}"
+						filterBy="#{car.userName}">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{car.userName}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{car.userName}" style="width:96%"
+									label="Year" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="password" sortBy="#{car.password}"
+						filterBy="#{car.password}">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{car.password}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{car.password}" style="width:96%"
+									label="Year" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="gender" sortBy="#{car.sex}"
+						style="width:70px;">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{car.sex}" />
+							</f:facet>
+							<f:facet name="input">
+								<h:selectOneMenu value="#{car.sex}" style="width:100%">
+									<f:selectItems value="#{editView.brands}" var="color"
+										itemLabel="#{color}" itemValue="#{color}" />
+								</h:selectOneMenu>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Avatar">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:graphicImage value="#{viewImageDB.methodConvertToStream()}"
+									width="90%">
+									<f:param name="id" value="#{car.userPhoto.photoId}"></f:param>
+								</p:graphicImage>
+							</f:facet>
+
+							<f:facet name="input">
+								<p:selectOneMenu value="#{car.userPhoto}"
+									converter="themeConverter" panelStyle="width:230px"
+									effect="fade" var="t" style="width:230px">
+									<f:selectItems value="#{selectOneMenuView.lists}" var="theme"
+										itemLabel="#{theme.photoName}" itemValue="#{theme}">
+									</f:selectItems>
+
+									<p:column style="width:10%">
+										<p:graphicImage value="#{viewImageDB.methodConvertToStream()}"
+											width="80%">
+											<f:param name="id" value="#{t.photoId}"></f:param>
+										</p:graphicImage>
+									</p:column>
+
+									<p:column>
+										<h:outputText value="#{t.photoName}" />
+									</p:column>
+								</p:selectOneMenu>
+							</f:facet>
+
+						</p:cellEditor>
+					</p:column>
+
+
+					<p:column headerText="Delete" style="width:80px;">
+						<button style="display: none;">Hidden</button>
+						<h:commandButton value="Delete" action="#{login.deleteUser(car)}"
+							class="btn btn-success" ajax="false" />
+					</p:column>
+					<f:facet name="footer">
+        In total there are #{login.listUsers.size()} users.
+   	 </f:facet>
+				</p:dataTable>
+
+			</div>
+
+		</div>
+	</h:form>
+
+	<h:form rendered="#{!bean.admin}">
+
+		<div class="col-lg-8" style="padding-left: 0px; padding-right: 0px;">
+			<p:growl id="msgs" showDetail="true" />
+
+
+			<div>
+
+				<p:dataTable id="cars2" var="car" value="#{login._user}"
+					editable="true" editMode="cell" widgetVar="cellCars"
+					style="margin-top: 10px;">
+					<f:facet name="header">
+						<h4>Your User</h4>
+
+
+					</f:facet>
+
+					<f:facet name="header">
+
+					</f:facet>
+
+
+					<p:ajax event="cellEdit" listener="#{editView.onCellEdit}"
+						update=":form:msgs" />
+					<p:column headerText="password">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{car.password}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{car.password}" style="width:96%"
+									label="Year" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					<p:column headerText="gender" style="width:70px;">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{car.sex}" />
+							</f:facet>
+							<f:facet name="input">
+								<h:selectOneMenu value="#{car.sex}" style="width:100%">
+									<f:selectItems value="#{editView.brands}" var="color"
+										itemLabel="#{color}" itemValue="#{color}" />
+								</h:selectOneMenu>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Avatar">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:graphicImage value="#{viewImageDB.methodConvertToStream()}"
+									width="70%">
+									<f:param name="id" value="#{car.userPhoto.photoId}"></f:param>
+								</p:graphicImage>
+							</f:facet>
+
+							<f:facet name="input">
+								<p:selectOneMenu value="#{car.userPhoto}"
+									converter="themeConverter" panelStyle="width:280px"
+									effect="fade" var="t" style="width:260px">
+									<f:selectItems value="#{selectOneMenuView.lists}" var="theme"
+										itemLabel="#{theme.photoName}" itemValue="#{theme}">
+
+										<!-- 											<p:ajax event="change" listener="changeImage" process="@this" update="@this"></p:ajax> -->
+									</f:selectItems>
+
+									<p:column style="width:10%">
+										<p:graphicImage value="#{viewImageDB.methodConvertToStream()}"
+											width="100%">
+											<f:param name="id" value="#{t.photoId}"></f:param>
+										</p:graphicImage>
+									</p:column>
+
+									<p:column>
+										<h:outputText value="#{t.photoName}" />
+									</p:column>
+								</p:selectOneMenu>
+							</f:facet>
+
+						</p:cellEditor>
+					</p:column>
+				</p:dataTable>
+
+			</div>
+
+		</div>
+
+	</h:form>
+
+</ui:component>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+    <body>
+	    <ui:composition>
+			
+			<h:outputStylesheet library="css" name="layout3.css" />
+	<h:form id="form1">
+
+		<div class="row">
+			<div class="col-lg-1" style="height: 50px"></div>
+		</div>
+		<div class="row" style="background-color: #6f5499; color: #cdbfe3;">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3">
+
+				<br></br>
+				<h3>
+					Hi
+					<h:outputText value="#{login.user}" />
+				</h3>
+				
+				<br></br>
+				<h1 style="color: #FFFFFF;">Getting started</h1>
+				<br></br> <br></br>
+				</div>
+				
+				<div class="col-lg-3" style="padding-right: 0px;">
+				<br></br>
+				<br></br>
+				<br></br>
+					 <h:inputText class="form-control" pt:placeholder="Search for..." value="#{login.msg}" />
+					 
+				</div>
+				<div class="col-lg-2" style="padding-left: 0px;">
+				<br></br>
+				<br></br>
+				<br></br>
+				<h:commandButton value="Go" class="btn btn-secondary"  action="#{login.search()}" ></h:commandButton>
+				</div>
+
+				
+			
+
+
+		</div>
+		</h:form>
+		
+				
+	    </ui:composition>
+    </body>
+</html>
+
+

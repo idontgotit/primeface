@@ -1,0 +1,32 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<h:form>
+
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10">
+
+
+				<p:galleria value="#{imagesView.images}" var="image"
+					panelWidth="500" panelHeight="313" showCaption="true">
+					<p:graphicImage value="#{viewImageDB.methodConvertToStream()}"
+						width="70%">
+						<f:param name="id"
+							value="#{viewImageDB.listUsersPhoto.get(image).photoId}"></f:param>
+					</p:graphicImage>
+				</p:galleria>
+
+			</div>
+
+		</div>
+
+	</h:form>
+
+
+</ui:component>

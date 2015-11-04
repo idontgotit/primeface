@@ -1,0 +1,167 @@
+<
+style>hr {
+	clear: both;
+	color: gray;
+	background-color: #006633;
+	height: 20px;
+	border-width: 0;
+}
+
+div {
+	/* 	color: #cdbfe3; */
+	/* 	background-color: #6f5499; */
+	
+}
+
+body {
+	background-repeat: no-repeat;
+}
+
+/* Make Header Sticky */
+#header_container {
+	background: #eee;
+	border: 1px solid #666;
+	height: 60px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	top: 0;
+}
+
+#header {
+	line-height: 60px;
+	margin: 0 auto;
+	width: 940px;
+	text-align: center;
+}
+
+#main {
+	width: 1000px;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#head {
+	height: 90px;
+	color: #cdbfe3;
+	background-color: #6f5499;
+	border: 1px solid #3f7dbf;
+	margin-bottom: 0px;
+}
+
+#head-link {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid #CDCDCD;
+	background-color: #F5F5F5;
+	margin-bottom: 5px;
+	clear: both;
+}
+
+#right {
+	width: 600px;
+	min-height: 100px;
+	/* 	border: 1px solid #CDCDCD; */
+	float: right;
+	margin-bottom: 5px;
+}
+
+#left {
+	font-family: 'Exo', sans-serif;
+	width: 300px; //
+	min-height: 1600px;
+	border: 2px solid #0090C9;
+	float: left;
+	background-color: #0000;
+	margin-bottom: 0px;
+}
+
+#content {
+	font-family: 'Exo', sans-serif;
+	width: 1600px;
+	min-height: 300px;
+	border: 0px solid #CDCDCD;
+	float: right;
+	margin-left: 0px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+#footer {
+	height: 50px;
+	clear: both;
+	border: 1px solid #CDCDCD;
+	background-color: #F8F8FF;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 100;
+	src: local('Exo Thin'), local('Exo-Thin'),
+		url(http://fonts.gstatic.com/s/exo/v4/8u62BadBN2JBBSWXwLrcLA.woff2)
+		format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF,
+		U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 100;
+	src: local('Exo Thin'), local('Exo-Thin'),
+		url(http://fonts.gstatic.com/s/exo/v4/bSEuBfAK9i16rKak_EdKNA.woff2)
+		format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Exo ExtraLight'), local('Exo-ExtraLight'),
+		url(http://fonts.gstatic.com/s/exo/v4/Hy3VpD2TiyQkDhJpDnN2QPesZW2xOQ-xsNqO47m55DA.woff2)
+		format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF,
+		U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Exo ExtraLight'), local('Exo-ExtraLight'),
+		url(http://fonts.gstatic.com/s/exo/v4/lA-XzkxvFbAS7qSN5Rm7dw.woff2)
+		format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Exo Regular'), local('Exo-Regular'),
+		url(http://fonts.gstatic.com/s/exo/v4/J59yWLG3iwczjwZ63gnONw.woff2)
+		format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF,
+		U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Exo Regular'), local('Exo-Regular'),
+		url(http://fonts.gstatic.com/s/exo/v4/kA_pX0U45Eb7PbHijV1x2w.woff2)
+		format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+		U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+</
+style
+>

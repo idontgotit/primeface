@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.jboss.org/ironjacamar/schema 
+        http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+	<datasource jndi-name="java:jboss/datasources/demo" pool-name="testds" enabled="true" use-ccm="false">
+		<connection-url>jdbc:postgresql://localhost:5432/Test</connection-url>
+		<driver>postgresql</driver>
+		<security>
+			<user-name>postgres</user-name>
+			<password>lovely19</password>
+		</security>
+		<validation>
+			<validate-on-match>false</validate-on-match>
+			<background-validation>false</background-validation>
+		</validation>
+	</datasource>
+</datasources>

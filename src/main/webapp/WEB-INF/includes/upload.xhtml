@@ -1,0 +1,31 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+		<div class="row" style="margin-bottom: 30px;">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10">
+
+
+				<!-- File Upload with  mode="advanced". multiple files can be uploaded. upload button  -->
+
+				<h:outputLabel for="fileIdPhoto" value="Upload Your Photo:" />
+
+
+				<p:fileUpload id="fileIdPhoto"
+					fileUploadListener="#{fileUploadBean.uploadPhoto}" mode="advanced"
+					dragDropSupport="false" multiple="true" update="messages"
+					sizeLimit="10000000" fileLimit="3"
+					allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+
+			</div>
+		</div>
+
+	</h:form>
+</ui:component>

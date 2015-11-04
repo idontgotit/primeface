@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui">
+
+<f:view contentType="text/html" encoding="UTF-8">
+	<h:head>
+		<title>What</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+			rel="stylesheet" />
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	</h:head>
+
+
+
+
+	<h:body id="contentPage">
+		<h:outputStylesheet library="css" name="layout2.css" />
+
+		<p:layout id="pageLayout" widgetVar="pageLayout_js" fullPage="true">
+			<p:layoutUnit id="centerPane" position="center">
+
+				<p:outputPanel id="contentPane">
+
+
+					
+						<p:outputPanel rendered="#{bean.login}">
+							<ui:include src="header_pane.xhtml" />
+						</p:outputPanel>
+					
+						<p:outputPanel id="subContentPane">
+							<ui:insert name="content" />
+						</p:outputPanel>
+
+					
+						<p:outputPanel rendered="#{bean.login}">
+							<ui:include src="footer_pane.xhtml" />
+						</p:outputPanel>
+					
+				</p:outputPanel>
+
+			</p:layoutUnit>
+		</p:layout>
+
+
+	</h:body>
+</f:view>
+</html>

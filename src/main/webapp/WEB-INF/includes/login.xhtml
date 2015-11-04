@@ -1,0 +1,45 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:outputStylesheet library="css" name="layout2.css" />
+
+
+	<div class="body"></div>
+	<div class="grad"></div>
+	<div class="header">
+		<div>
+			<span>Login</span>Form
+		</div>
+	</div>
+	<br />
+
+	<h:form>
+		<div class="login">
+
+			<p:inputText id="username" value="#{login.user}"
+				placeholder=" username" type="text">
+
+			</p:inputText>
+
+			<br /> <br />
+			<p:password id="password" value="#{login.pwd}"
+				placeholder=" password">
+
+			</p:password>
+			<br /> <br />
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+
+			<p:commandButton value="Login" actionListener="#{login.login}"
+				class="btn btn-success" process="@form" update=":contentPane"  />
+		</div>
+
+	</h:form>
+
+
+
+
+
+</ui:component>

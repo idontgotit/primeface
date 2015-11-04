@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
+	<!-- To access constants -->
+	<h:outputStylesheet library="css" name="layout3.css" />
+	<h:form>
+		<div class="row">
+			<div class="col-lg-1" style="height: 50px"></div>
+			<div class="col-lg-10" style="height: 50px"></div>
+			<div class="col-lg-1" style="height: 50px">
+				<button type="button" class="btn btn-warning" data-toggle="modal"
+					data-target="#logout">Log Out</button>
+			</div>
+		</div>
+
+	</h:form>
+	<h:form rendered="#{bean.admin}">
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10"></div>
+			<div class="col-lg-1">
+				<!-- Trigger the modal with a button -->
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#myModal">AddUser</button>
+			</div>
+		</div>
+	</h:form>
+
+	<h:form>
+		<br></br>
+		<div class="row" style="background-color: #6f5499; color: #cdbfe3;">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3">
+
+				<br></br>
+				<h3>
+					Hi
+					<h:outputText value="#{login.user}" />
+				</h3>
+
+				<br></br>
+				<h1 style="color: #FFFFFF;">Getting started</h1>
+				<br></br> <br></br>
+			</div>
+
+			<div class="col-lg-4" style="padding-right: 0px;">
+				<br></br> <br></br> <br></br>
+				<h:inputText class="form-control" pt:placeholder="Search for..."
+					value="#{search.input}"
+					style="background-image: url(http://truyentranhtuan.com/wp-content/themes/nos/images/searchIcon.png);
+    background-position-x: 100%;
+    background-position-y: 50%;
+    background-size: initial;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: scroll;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: white;" />
+
+			</div>
+			<div class="col-lg-2" style="padding-left: 0px;">
+				<br></br> <br></br> <br></br>
+				<h:commandButton value="Go" class="btn btn-secondary"
+					action="#{search.search()}" style="height: 34px; display: none;"></h:commandButton>
+			</div>
+
+
+		</div>
+
+	</h:form>
+
+	<h:form>
+
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10">
+
+				<p:growl id="msgs" showDetail="true" />
+
+				<h3 style="margin-top: 0"></h3>
+				<p:tabView activeIndex="#{bean.selectedTab}"
+					style="
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+         border-top-width: 0px;border-bottom-width: 0px;border-right-width: 0px; border-left-width: 0px; padding-left: 0px;padding-bottom: 0px;padding-right: 0px;padding-top: 0px;
+				">
+					<p:ajax event="tabChange" process="@this" update=":subContentPane"
+						listener="#{bean.onTabChange}"></p:ajax>
+					<p:tab title="Home">
+					</p:tab>
+					<p:tab title="Galleria">
+
+					</p:tab>
+					<p:tab title="Upload">
+					</p:tab>
+				</p:tabView>
+
+
+			</div>
+		</div>
+
+
+	</h:form>
+	<h:form>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+
+
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"></button>
+						<h4 class="modal-title">type new user and password</h4>
+					</div>
+
+
+
+					<div class="modal-body">
+						<p>
+							<h:outputText value="Username" />
+							<p:inputText id="username" value="#{login.user}" />
+							<h:message for="username"></h:message>
+							<br /> <br />
+							<h:outputText value=" Password " />
+							<p:password id="password" value="#{login.pwd}" />
+							<h:message for="password"></h:message>
+							<h:panelGrid columns="2" style="margin-bottom:10px"
+								cellpadding="5">
+								<p:outputLabel for="console" value="Gender:" />
+								<p:selectOneRadio id="console" value="#{login.sex}">
+									<f:selectItem itemLabel="Male" itemValue="Male" />
+									<f:selectItem itemLabel="Female" itemValue="Female" />
+								</p:selectOneRadio>
+							</h:panelGrid>
+
+							<br /> <br />
+							<h:commandButton value="Submit" id="ajax1" update="cars2"
+								action="#{login.addUser()}" class="btn btn-success" />
+
+						</p>
+
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal  LogOut-->
+		<div class="modal fade" id="logout" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+
+
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"></button>
+						<h4 class="modal-title">Log Out</h4>
+					</div>
+
+
+
+					<div class="modal-body">
+						<p>
+							<h3>Are you sure</h3>
+
+							<br></br>
+							<p:commandButton value="Yes" action="#{login.logOut}"
+								class="btn btn-success" process="@this" update=":contentPane"
+								style="background-color: aqua;background: #5cb85c;color: #fff;height: 30px;border: 0px;padding-left: 0px;padding-right: 0px;
+								" />
+
+							<p:spacer width="30" />
+
+							<button type="button" class="btn btn-success"
+								data-dismiss="modal">No</button>
+
+
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br></br>
+	</h:form>
+
+</ui:composition>

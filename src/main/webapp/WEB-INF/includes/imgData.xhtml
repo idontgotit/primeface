@@ -1,0 +1,44 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<h:form>
+		<p:growl id="msgs" showDetail="true" />
+
+		<p:dataTable var="car" value="#{viewImageDB.listUsersPhoto}" rows="5"
+			paginator="true"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15">
+
+
+			<f:facet name="header">
+				<h4>All Image</h4>
+			</f:facet>
+
+			<p:column headerText="Id">
+
+
+				<h:outputText value="#{car.photoId}" />
+
+
+			</p:column>
+
+			<p:column headerText="Name">
+				<h:outputText value="#{car.photoName}" />
+			</p:column>
+
+			<p:column headerText="Image">
+				<p:graphicImage value="#{viewImageDB.methodConvertToStream()}"
+					width="80%">
+					<f:param name="id" value="#{car.photoId}"></f:param>
+				</p:graphicImage>
+			</p:column>
+		</p:dataTable>
+
+
+
+	</h:form>
+</ui:component>
