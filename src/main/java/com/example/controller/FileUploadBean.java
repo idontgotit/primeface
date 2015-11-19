@@ -82,7 +82,7 @@ public class FileUploadBean implements Serializable {
 
 		UploadedFile uploadedPhoto = e.getFile();
 
-		String filePath = "/home/ngocpt/test/";
+		String filePath = "/home/ngoc/test/";
 		byte[] bytes = null;
 
 		if (null != uploadedPhoto) {

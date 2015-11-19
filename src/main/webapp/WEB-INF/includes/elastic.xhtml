@@ -7,17 +7,26 @@
 
 	<h:form>
 		<div class="row" style="margin-bottom: 30px;">
-			<div class="col-lg-1"></div>
+			<div class="col-lg-1" >
+				<p:multiSelectListbox value="#{search.selection}" rendered="false"
+					effect="slide" header="Hãng sản xuất" showHeaders="true" >
+					<f:selectItems value="#{search.listManu}" />
+				</p:multiSelectListbox>
+
+				<p:commandButton value="Select" icon="ui-icon-check" update=":contentPane" rendered="false"
+					style="display:block;margin:10px 0" action="#{search.searchAndFilter}"/>
+
+			</div>
 			<div class="col-lg-10">
 
-				<p:dataTable var="car" value="#{search.listUsers}" rows="5"
+				<p:dataTable var="car" value="#{search.listInformation}" rows="10"
 					paginator="true"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15">
+					rowsPerPageTemplate="10,20,30">
 
 
 					<f:facet name="header">
-						<h4>All User Search</h4>
+						<h4> In total there are #{search.listInformation.size()} results.</h4>
 					</f:facet>
 
 					<p:column headerText="Id">
@@ -25,12 +34,18 @@
 					</p:column>
 
 					<p:column headerText="Name">
-						<h:outputText value="#{car.userName}" />
+						<h:outputText value="#{car.com_company_name}" />
 					</p:column>
 
-					<p:column headerText="Pass">
-						<h:outputText value="#{car.password}" />
+					<p:column headerText="Furigana">
+						<h:outputText value="#{car.com_company_furigana}" />
 					</p:column>
+					
+						<p:column headerText="URL">
+						<h:outputText value="#{car.com_url}" />
+					</p:column>
+
+			
 				</p:dataTable>
 
 			</div>
